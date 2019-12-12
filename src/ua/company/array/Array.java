@@ -4,7 +4,7 @@ public class Array {
 
     public static void main(String[] args) {
 
-        int dimension = 10 ;
+        int dimension = 10;
         int[] array = createArray(dimension);
 
         printArrayDesc(array);
