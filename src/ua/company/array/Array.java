@@ -5,13 +5,13 @@ public class Array {
     public static void main(String[] args) {
 
         int dimension = 10;
-        int[] array = createArray(dimension);
+        int[] array = create(dimension);
 
-        printArrayDesc(array);
+        displayDesc(array);
 
-        System.out.println("The maximum value of element equal " + maxElement(array));
+        System.out.println("The maximum value of element equal " + max(array));
 
-        System.out.println("Average equal " + avgValue(array));
+        System.out.println("Average equal " + avg(array));
 
         int searchValue = 5;
         int index = searchIndex(searchValue, array);
@@ -19,12 +19,12 @@ public class Array {
             System.out.println("The value " + searchValue + ". The index of element equal " + index );
         } else {
             System.out.println("Index not found.");
-        };
+        }
 
-        if(!findEven(array)) System.out.println("The array doesn't contain even numbers.");
+        if(!findEven(array)) System.out.println("The array doesn't contains even numbers.");
     }
 
-    private static int[] createArray(int dimension) {
+    private static int[] create(int dimension) {
         int[] temp = new int[dimension];
         for (int i = 0; i < temp.length; i++) {
             temp[i] = i + 1;
@@ -32,7 +32,7 @@ public class Array {
         return temp;
     }
     
-    private static void printArrayDesc(int[] array) {
+    private static void displayDesc(int[] array) {
         System.out.print("[");
         for (int i = array.length-1; i >= 0; i--) {
             System.out.print(array[i]);
@@ -41,7 +41,7 @@ public class Array {
         System.out.println("]" );
     }
 
-    private static void printArrayAsc(int[] array) {
+    private static void displayAsc(int[] array) {
         System.out.print("[");
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i]);
@@ -50,20 +50,20 @@ public class Array {
         System.out.println("]" );
     }
 
-    private static int maxElement(int[] array) {
-        int maxElement = array[0];
+    private static int max(int[] array) {
+        int max = array[0];
         for (int a: array) {
-            if( a > maxElement ) maxElement = a;
+            if( a > max ) max = a;
         }
-        return maxElement;
+        return max;
     }
 
-    private static double avgValue(int[] array){
-        int sumOfElement = 0;
+    private static double avg(int[] array){
+        int sum = 0;
         for (int a: array ) {
-            sumOfElement += a;
+            sum += a;
         }
-        return (double) sumOfElement/array.length;
+        return (double) sum/array.length;
     }
 
     private static int searchIndex(int searchValue, int[] array) {
@@ -72,7 +72,7 @@ public class Array {
             if (array[i] == searchValue) {
                 index = i;
                 break;
-            };
+            }
         }
         return index;
     }
@@ -80,8 +80,9 @@ public class Array {
     private static boolean findEven(int[] array) {
         boolean result = false;
         int evenAmount = 0;
-        for (int a : array)
+        for (int a : array) {
             if (a % 2 == 0) evenAmount++;
+        }
 
         if (evenAmount > 0) {
             result = true;
@@ -90,7 +91,7 @@ public class Array {
             for (int a : array) {
                 if (a % 2 == 0) temp[i++] = a;
             }
-            printArrayAsc(temp);
+            displayAsc(temp);
         }
         return result;
     }
